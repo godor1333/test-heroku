@@ -1,0 +1,16 @@
+{% extends 'social_auth/base.html' %}
+
+{% block title %} Друзья ВК {% endblock %}
+
+{% block content %}
+<div >
+    <h2 >{{user.first_name}} {{user.last_name}}</h2>
+    {% for friend in friends.items %}
+    <a  href="https://vk.com/{{ friend.domain }}">
+        <h3 >{{ friend.first_name }} {{ friend.last_name }}</h3>
+    </a>
+    {% endfor %}
+
+</div>
+  <a  href="{% url 'logout' %}">ВЫЙТИ</a>
+  {% endblock content %}
